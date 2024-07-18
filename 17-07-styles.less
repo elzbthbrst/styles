@@ -2177,7 +2177,7 @@ textarea,
 
 /* upload-balance page */
 
-.upload-balance-section {
+.upload-documents-section {
     .mainFormTitle {
         letter-spacing: -1.5px;
     }
@@ -2246,7 +2246,6 @@ textarea,
                 align-items: center;
                 gap: 20px;
             }
-
         }
 
         [class *="attachment__list"] {
@@ -2313,11 +2312,23 @@ textarea,
             right: 0;
 
         }
+
+        .disabled {
+            span[class *="browseLink"] {
+                pointer-events: none !important;
+                cursor: default !important;
+                color: @color-grey  !important;
+            }
+
+            [class *="browseLinkBox"] {
+                background-color: @color-disabled  !important;
+            }
+        }
     }
 
 }
 
-.upload-balance-section .browse div[class *="loadBtn"]>span::before {
+.upload-documents-section .browse div[class *="loadBtn"]>span::before {
     content: '';
     background: url(https://sim.simulator.company/api/1.0/download/56b04161-854d-449c-9f43-f99db89b4033/2024/7/17/ixfiifjeco50zpHP6DgOF8EHlvKeXAF3okFrQTylYwbY3aBRDcqdNKiNCcx7XLgiPi7Uxl56oiOC3KUwB24dWtUSawHeb5Kfn6DHFqyNSCkAbHLVV4aaxWsMabSoLtRxZtwATdf3nI7BCX8lvfvKZGTihSdOKOM6mBkaNPHxdtbQkW7KSGQssIy5k7IR7mB5IZLPzzQ2?preview=true);
     display: block;
@@ -2327,13 +2338,13 @@ textarea,
     background-repeat: no-repeat;
 }
 
-.upload-balance-section .browse div[class *="loadBtn"] [class *="browseLinkBox"]:hover {
+.upload-documents-section .browse div[class *="loadBtn"] [class *="browseLinkBox"]:hover {
     span {
         text-decoration: none !important;
     }
 }
 
-.upload-balance-section:has([class *="attachment__list"]) {
+.upload-documents-section:has([class *="attachment__list"]) {
     .browse-field {
         font-size: 11px !important;
         font-weight: 400 !important;
@@ -2342,9 +2353,35 @@ textarea,
         span {
             padding: 0 6px;
             position: relative;
-            top: -23px;
+            top: -21px;
             background: white;
             left: -4px;
+        }
+    }
+}
+
+[class *='attachment__spinner__background'] {
+    position: fixed !important;
+}
+
+[class*="attachment__spinner__wrap"] {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    [class *="attachment__spinner"] {
+        width: 100px;
+        height: 100px;
+
+        [class*="bar"] {
+            background: @color-orange;
         }
     }
 }
